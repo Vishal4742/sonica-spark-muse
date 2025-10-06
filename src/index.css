@@ -8,55 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Anime-inspired color palette */
-    --background: 240 40% 7%;
-    --foreground: 0 0% 100%;
+    /* Luxury dark palette with gold accents */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 240 35% 10%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 240 35% 10%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Vibrant anime purples and pinks */
-    --primary: 271 81% 56%;
-    --primary-foreground: 0 0% 100%;
+    /* Luxury gold */
+    --primary: 43 74% 66%;
+    --primary-foreground: 0 0% 10%;
     
-    --secondary: 328 86% 70%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 40 60% 50%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 240 20% 25%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 198 93% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 74% 66%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 20% 18%;
-    --input: 240 20% 18%;
-    --ring: 271 81% 56%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 43 74% 66%;
 
-    --radius: 1rem;
+    --radius: 0.25rem;
 
-    /* Anime-specific colors */
-    --anime-purple: 271 81% 56%;
-    --anime-pink: 328 86% 70%;
-    --anime-blue: 217 91% 60%;
-    --anime-cyan: 189 94% 43%;
-    --anime-orange: 25 95% 53%;
-    --anime-yellow: 45 93% 47%;
-    --anime-green: 160 84% 39%;
+    /* Luxury-specific colors */
+    --gold: 43 74% 66%;
+    --gold-dark: 40 60% 50%;
+    --gold-light: 45 80% 75%;
+    --bronze: 30 50% 45%;
     
     /* Glass morphism */
-    --glass-bg: 0 0% 100% / 0.05;
-    --glass-border: 0 0% 100% / 0.1;
+    --glass-bg: 0 0% 100% / 0.03;
+    --glass-border: 0 0% 100% / 0.08;
     
     /* Glow effects */
-    --glow-primary: 271 81% 56% / 0.5;
-    --glow-secondary: 328 86% 70% / 0.5;
-    --glow-accent: 217 91% 60% / 0.5;
+    --glow-gold: 43 74% 66% / 0.4;
   }
 }
 
@@ -69,39 +64,24 @@ All colors MUST be HSL.
     @apply bg-background text-foreground font-sans antialiased;
   }
   
-  /* Anime-style text shadows */
-  .text-glow {
-    text-shadow: 0 0 20px hsl(var(--glow-primary)), 0 0 40px hsl(var(--glow-primary));
-  }
-  
-  .text-glow-pink {
-    text-shadow: 0 0 20px hsl(var(--glow-secondary)), 0 0 40px hsl(var(--glow-secondary));
-  }
-  
-  .text-glow-blue {
-    text-shadow: 0 0 20px hsl(var(--glow-accent)), 0 0 40px hsl(var(--glow-accent));
+  /* Luxury text effects */
+  .text-glow-gold {
+    text-shadow: 0 0 30px hsl(var(--glow-gold)), 0 0 60px hsl(var(--glow-gold));
   }
 }
 
-/* Anime gradient backgrounds */
+
+/* Luxury gradient backgrounds */
 @layer utilities {
-  .anime-gradient-purple {
-    background: linear-gradient(135deg, hsl(var(--anime-purple)), hsl(var(--anime-pink)));
+  .luxury-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)));
   }
   
-  .anime-gradient-blue {
-    background: linear-gradient(135deg, hsl(var(--anime-blue)), hsl(var(--anime-cyan)));
+  .luxury-gradient-vertical {
+    background: linear-gradient(180deg, hsl(var(--gold)) 0%, hsl(var(--bronze)) 100%);
   }
   
-  .anime-gradient-rainbow {
-    background: linear-gradient(135deg, 
-      hsl(var(--anime-purple)) 0%, 
-      hsl(var(--anime-pink)) 50%, 
-      hsl(var(--anime-blue)) 100%
-    );
-  }
-  
-  /* Glass morphism effect */
+  /* Glass morphism effect - luxury version */
   .glass-card {
     background: hsl(var(--glass-bg));
     backdrop-filter: blur(20px);
@@ -109,25 +89,25 @@ All colors MUST be HSL.
   }
   
   /* Glow effects */
-  .glow-primary {
+  .glow-gold {
     box-shadow: 
-      0 0 20px hsl(var(--glow-primary)),
-      0 0 40px hsl(var(--glow-primary)),
-      0 0 60px hsl(var(--glow-primary) / 0.3);
+      0 0 20px hsl(var(--glow-gold)),
+      0 0 40px hsl(var(--glow-gold)),
+      0 0 60px hsl(var(--glow-gold) / 0.2);
   }
   
-  .glow-secondary {
-    box-shadow: 
-      0 0 20px hsl(var(--glow-secondary)),
-      0 0 40px hsl(var(--glow-secondary)),
-      0 0 60px hsl(var(--glow-secondary) / 0.3);
+  /* Geometric accent lines */
+  .diagonal-line {
+    position: relative;
   }
   
-  .glow-accent {
-    box-shadow: 
-      0 0 20px hsl(var(--glow-accent)),
-      0 0 40px hsl(var(--glow-accent)),
-      0 0 60px hsl(var(--glow-accent) / 0.3);
+  .diagonal-line::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, hsl(var(--border)), transparent);
+    transform: rotate(-15deg);
   }
 }
 

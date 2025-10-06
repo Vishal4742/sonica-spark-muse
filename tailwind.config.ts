@@ -13,7 +13,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["Inter", "Noto Sans JP", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
+      serif: ["Playfair Display", "serif"],
     },
     extend: {
       colors: {
@@ -50,15 +51,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        anime: {
-          purple: "hsl(var(--anime-purple))",
-          pink: "hsl(var(--anime-pink))",
-          blue: "hsl(var(--anime-blue))",
-          cyan: "hsl(var(--anime-cyan))",
-          orange: "hsl(var(--anime-orange))",
-          yellow: "hsl(var(--anime-yellow))",
-          green: "hsl(var(--anime-green))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          dark: "hsl(var(--gold-dark))",
+          light: "hsl(var(--gold-light))",
         },
+        bronze: "hsl(var(--bronze))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -127,7 +125,7 @@ export default {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "anime-gradient": "linear-gradient(135deg, hsl(var(--anime-purple)), hsl(var(--anime-pink)), hsl(var(--anime-blue)))",
+        "luxury-gradient": "linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)))",
       },
     },
   },

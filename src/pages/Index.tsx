@@ -1,141 +1,131 @@
 import { Link } from "react-router-dom";
-import { Mic2, Search, Zap, Heart, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { GlassCard } from "@/components/GlassCard";
-import { ParticleBackground } from "@/components/ParticleBackground";
-import heroImage from "@/assets/hero-music.jpg";
+import luxuryHero from "@/assets/luxury-hero.jpg";
 
 const Index = () => {
-  const features = [
-    {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Get song results in seconds with our AI-powered recognition",
-      gradient: "from-anime-yellow to-anime-orange",
-    },
-    {
-      icon: Heart,
-      title: "High Accuracy",
-      description: "99% accuracy rate with our advanced audio fingerprinting",
-      gradient: "from-anime-pink to-anime-purple",
-    },
-    {
-      icon: TrendingUp,
-      title: "Always Learning",
-      description: "Constantly updated database with millions of songs",
-      gradient: "from-anime-cyan to-anime-blue",
-    },
-  ];
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    month: "long",
+    day: "2-digit",
+    year: "numeric",
+  }).toUpperCase();
 
   return (
-    <div className="min-h-screen">
-      <ParticleBackground />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img 
-            src={heroImage} 
-            alt="Music visualization" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-anime-purple via-anime-pink to-anime-blue bg-clip-text text-transparent">
-                Discover Music
-              </span>
-              <br />
-              <span className="text-foreground text-glow">
-                Instantly
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              The fastest way to identify any song with our anime-inspired AI music recognition app
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Geometric background elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-1/4 text-9xl font-serif text-gold">0°</div>
+        <div className="absolute bottom-1/3 left-1/3 text-9xl font-serif text-gold">0°</div>
+        <div className="absolute top-1/2 right-1/3 text-9xl font-serif text-gold">0°</div>
+      </div>
+
+      {/* Diagonal lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-border/30 to-transparent transform -rotate-12" />
+        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-border/30 to-transparent transform rotate-12" />
+      </div>
+
+      {/* Sidebar Navigation */}
+      <div className="fixed left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8 z-10">
+        {[1, 2, 3, 4].map((num) => (
+          <div
+            key={num}
+            className={cn(
+              "text-2xl font-light transition-colors cursor-pointer",
+              num === 1 ? "text-gold" : "text-muted-foreground hover:text-gold"
+            )}
+          >
+            {num}
+          </div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-8rem)]">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in">
+            {/* Signature Title */}
+            <div className="space-y-6">
+              <h1 className="font-serif text-7xl lg:text-8xl font-bold text-gold italic leading-none">
+                Sonica
+              </h1>
+              <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+                Developed with cutting-edge AI technology for high-precision
+                audio recognition and instant music identification.
+              </p>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-4">
               <Link to="/recognize">
-                <Button variant="hero" size="xl" className="group relative overflow-hidden">
-                  <Mic2 className="h-6 w-6" />
-                  Recognize Now
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                </Button>
-              </Link>
-              <Link to="/search">
-                <Button variant="glass" size="xl">
-                  <Search className="h-6 w-6" />
-                  Search Songs
+                <Button variant="luxury" size="lg" className="group">
+                  Recognize
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
+
+            {/* Date */}
+            <div className="pt-12">
+              <p className="text-xs tracking-widest text-muted-foreground">
+                {currentDate}
+              </p>
+            </div>
+
+            {/* Main Heading */}
+            <div className="pt-8 space-y-4 max-w-lg">
+              <h2 className="font-serif text-4xl lg:text-5xl leading-tight text-gold-light">
+                Make Music Discovery Your Best Digital Experience
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Developed with advanced AI algorithms for instant
+                audio fingerprinting and real-time music identification.
+              </p>
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 animate-fade-in-up">
-            <GlassCard className="text-center">
-              <div className="text-4xl font-black text-primary mb-2">10M+</div>
-              <div className="text-muted-foreground">Songs Recognized</div>
-            </GlassCard>
-            <GlassCard className="text-center">
-              <div className="text-4xl font-black text-secondary mb-2">99%</div>
-              <div className="text-muted-foreground">Accuracy Rate</div>
-            </GlassCard>
-            <GlassCard className="text-center">
-              <div className="text-4xl font-black text-accent mb-2">&lt;3s</div>
-              <div className="text-muted-foreground">Average Speed</div>
-            </GlassCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl md:text-5xl font-black text-center mb-16 animate-fade-in">
-            <span className="bg-gradient-to-r from-anime-blue via-anime-cyan to-anime-green bg-clip-text text-transparent">
-              Magical Features
-            </span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in-up">
-            {features.map((feature, i) => (
-              <GlassCard key={i} className="text-center group">
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
-                  <feature.icon className="h-8 w-8 text-foreground" />
+          {/* Right Image */}
+          <div className="relative animate-fade-in-up lg:ml-auto">
+            <div className="relative w-full max-w-md lg:max-w-lg mx-auto">
+              <img
+                src={luxuryHero}
+                alt="Luxury music experience"
+                className="w-full h-auto rounded-sm"
+              />
+              
+              {/* Explore Label */}
+              <div className="absolute bottom-8 -right-4 lg:-right-12">
+                <div className="flex items-center gap-4">
+                  <div className="h-24 w-px bg-gold" />
+                  <div className="writing-mode-vertical text-sm tracking-widest uppercase text-gold font-medium">
+                    Explore
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </GlassCard>
-            ))}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <GlassCard className="text-center p-12 animate-fade-in relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-anime-purple via-anime-pink to-anime-blue opacity-5 group-hover:opacity-10 transition-opacity" />
-            <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10">
-              Ready to Find Your Music?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 relative z-10">
-              Start recognizing songs with just one tap
-            </p>
-            <Link to="/recognize">
-              <Button variant="hero" size="xl" className="relative z-10">
-                <Mic2 className="h-6 w-6" />
-                Get Started Now
-              </Button>
-            </Link>
-          </GlassCard>
+      {/* Bottom Stats */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-12 text-xs tracking-widest text-muted-foreground">
+        <div>
+          <span className="text-gold font-medium">10M+</span> RECOGNITIONS
         </div>
-      </section>
+        <div className="w-px h-4 bg-border" />
+        <div>
+          <span className="text-gold font-medium">99%</span> ACCURACY
+        </div>
+        <div className="w-px h-4 bg-border" />
+        <div>
+          <span className="text-gold font-medium">&lt;3s</span> SPEED
+        </div>
+      </div>
     </div>
   );
 };
+
+// Helper for cn (added here since it's needed)
+import { cn } from "@/lib/utils";
 
 export default Index;

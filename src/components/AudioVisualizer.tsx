@@ -33,7 +33,7 @@ export const AudioVisualizer = ({
           className={cn(
             "w-1 rounded-full transition-all duration-100",
             isActive 
-              ? "bg-gradient-to-t from-anime-purple via-anime-pink to-anime-blue" 
+              ? "bg-gradient-to-t from-gold-dark via-gold to-gold-light" 
               : "bg-muted"
           )}
           style={{

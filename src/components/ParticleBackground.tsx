@@ -1,45 +1,10 @@
-import { useEffect, useState } from "react";
-
-interface Particle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  duration: number;
-  delay: number;
-}
-
 export const ParticleBackground = () => {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 2,
-      duration: Math.random() * 10 + 10,
-      delay: Math.random() * 5,
-    }));
-    setParticles(newParticles);
-  }, []);
-
+  // Minimal particles for luxury aesthetic
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className="absolute rounded-full bg-anime-purple/30 animate-particle-float"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            animationDuration: `${particle.duration}s`,
-            animationDelay: `${particle.delay}s`,
-          }}
-        />
-      ))}
+    <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-20">
+      <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-gold rounded-full animate-pulse" />
+      <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-gold rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute bottom-1/4 left-2/3 w-1 h-1 bg-gold rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
     </div>
   );
 };
